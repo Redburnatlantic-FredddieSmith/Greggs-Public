@@ -2,7 +2,7 @@ import googlemaps
 import pandas as pd
 
 # api key needs billing info to work
-api_key = 'AIzaSyA7-eBi0lZ-XTdeSpv3jf8fTLtYk72MbKw'
+api_key = 'AIzaSyAwFD9ovXIgPaavhP533qa2XpWE6IINzf0'
 gmaps = googlemaps.Client(key=api_key)
 
 def find_greggs_stores_from_csv(csv_file):
@@ -35,7 +35,7 @@ def get_opening_and_closing_hours(place_id):
         return "Opening hours not available.", "Closing hours not available."
 
 def main():
-    csv_file_path = '/workspaces/GRGS-opening-time/GRGS_CSV.csv'
+    csv_file_path = '/workspaces/Greggs-Public/GRGS_CSV.csv'
     
     greggs_place_ids = find_greggs_stores_from_csv(csv_file_path)
 
@@ -50,7 +50,7 @@ def main():
     df = pd.DataFrame(data)
 
     # Save data to an Excel file
-    df.to_excel('/workspaces/GRGS-opening-time/greggs_opening_hours_trial.xlsx', index=False)
+    df.to_excel('/workspaces/Greggs-Public/output.xls', index=False)
 
 if __name__ == "__main__":
     main()
